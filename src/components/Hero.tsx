@@ -1,4 +1,4 @@
-import { SCRIPT_LOADSTRING } from '../siteConfig'
+import { LUMBER_TYCOON_2_URL, SCRIPT_LOADSTRING } from '../siteConfig'
 import { CopyButton } from './CopyButton'
 import { ScriptPreview } from './ScriptPreview'
 import { ShimmerText } from './ShimmerText'
@@ -13,8 +13,11 @@ export function Hero() {
               <ShimmerText>Aurora Reborn</ShimmerText>
             </h1>
             <p className="mt-4 max-w-lg text-base leading-relaxed text-neutral-300 sm:text-lg">
-              Aurora, the best GUI for Lumber Tycoon 2 🌳
-            </p>
+              Aurora, the best GUI for{' '}
+              <a href={LUMBER_TYCOON_2_URL} target="_blank" rel="noopener" className="text-white transition hover:text-neutral-300">
+                🌳Lumber Tycoon 2
+              </a>{' '}</p>
+
           </div>
           <code className="block w-full break-all rounded-2xl border border-white/10 bg-tertiary px-5 py-4 font-mono text-sm leading-relaxed text-neutral-100 sm:text-base">
             {SCRIPT_LOADSTRING}
