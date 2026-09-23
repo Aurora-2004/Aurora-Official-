@@ -1,10 +1,10 @@
 --[[
     Links:
-      https://www.tehsilent.xyz/files/AuroraReborn.lua
-      https://www.tehsilent.xyz/AuroraReborn.lua
+      https://www.tehsilent.xyz/files/LT2.lua
+      https://www.tehsilent.xyz/LT2.lua
 
     Loadstring:
-      loadstring(game:HttpGetAsync("https://www.tehsilent.xyz/files/AuroraReborn.lua"))()
+      loadstring(game:HttpGetAsync("https://www.tehsilent.xyz/LT2.lua"))()
 ]]
 
 
