@@ -5,18 +5,34 @@
   "redirects": [
     {
       "source": "/files/:file([^/]+\\.lua)",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/html.*" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/html.*"
+        }
+      ],
       "destination": "/404",
       "permanent": false
     },
     {
       "source": "/:file([^/]+\\.lua)",
-      "has": [{ "type": "header", "key": "accept", "value": ".*text/html.*" }],
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/html.*"
+        }
+      ],
       "destination": "/404",
       "permanent": false
     }
   ],
   "rewrites": [
+    {
+      "source": "/auth",
+      "destination": "/api/auth"
+    },
     {
       "source": "/:file([^/]+\\.lua)",
       "destination": "/files/:file"

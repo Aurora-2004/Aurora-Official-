@@ -1,7 +1,8 @@
 import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
-import type { IncomingMessage } from 'node:http'
-import { defineConfig, type Plugin } from 'vite'
+import type { IncomingMessage, ServerResponse } from 'node:http'
+import { defineConfig, loadEnv, type Plugin } from 'vite'
+import { GET as handleAuthRequest } from './api/auth.ts'
 
 const PAGES = {
   main: 'index.html',
@@ -20,7 +21,13 @@ function isBrowserNavigation(req: IncomingMessage) {
   return req.headers.accept?.includes('text/html') ?? false
 }
 
-// Mirrors vercel.json in dev: browsers can't open .lua files, and unknown routes render 404.html.
+async function sendAuthResponse(req: IncomingMessage, res: ServerResponse) {
+  const response = handleAuthRequest(new Request(`http://localhost${req.url}`))
+  res.writeHead(response.status, Object.fromEntries(response.headers))
+  res.end(await response.text())
+}
+
+// Mirrors vercel.json in dev: browsers can't open .lua files, /auth runs api/auth.ts, and unknown routes render 404.html.
 function notFoundPagePlugin(): Plugin {
   return {
     name: 'not-found-page',
@@ -28,6 +35,10 @@ function notFoundPagePlugin(): Plugin {
       server.middlewares.use((req, res, next) => {
         if (isBrowserNavigation(req) && pathnameOf(req).endsWith('.lua')) {
           res.writeHead(307, { Location: '/404' }).end()
+          return
+        }
+        if (pathnameOf(req) === '/auth') {
+          void sendAuthResponse(req, res)
           return
         }
         next()
@@ -46,12 +57,19 @@ function notFoundPagePlugin(): Plugin {
   }
 }
 
-export default defineConfig({
-  appType: 'mpa',
-  plugins: [react(), tailwindcss(), notFoundPagePlugin()],
-  build: {
-    rollupOptions: {
-      input: PAGES,
+export default defineConfig(({ mode }) => {
+  // Server-only: LICENSE isn't exposed to client code (only VITE_ vars are).
+  // Assigning undefined to process.env stores the string "undefined", so only set a real value.
+  const { LICENSE } = loadEnv(mode, process.cwd(), 'LICENSE')
+  if (LICENSE) process.env.LICENSE = LICENSE
+
+  return {
+    appType: 'mpa',
+    plugins: [react(), tailwindcss(), notFoundPagePlugin()],
+    build: {
+      rollupOptions: {
+        input: PAGES,
+      },
     },
-  },
+  }
 })
