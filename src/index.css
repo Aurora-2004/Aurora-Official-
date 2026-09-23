@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #1e253c;
+  --color-secondary: #252c48;
+  --color-tertiary: #1b2136;
+}
+
+.shimmer-text-wrap {
+  display: inline-block;
+  overflow: hidden;
+}
+
+.shimmer-text {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
