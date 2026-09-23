@@ -26,11 +26,11 @@ The script itself is served as plain text from `public/files/AuroraReborn.lua`. 
 ## Setup
 
 1. Make a free account at [Vercel](https://vercel.com/) and sign in with GitHub.
-2. Click **Add New > Project** and pick this repo.
+2. Click **Add New > Project** and pick [this repo](https://github.com/Aurora-2004/Aurora-Official-).
 3. Click **Deploy**.
 4. To use a custom domain, open the project and go to **Settings > Domains**.
 
-Any changes made to this repo auto updates the site on vercel (once building is done)
+Any changes made to [this repo](https://github.com/Aurora-2004/Aurora-Official-) auto updates the site on vercel (once building is done)
 
 
 ## Support & Contact
