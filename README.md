@@ -1,16 +1,16 @@
 <div align="center">
 
+![alt text](public/files//Icon.png)
+
 # Aurora Website
 
 **Website for the **Aurora** GUI (discord.gg/b5j3enGWCY)**
 
 ![Language](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)
 
-![alt text](public/files//Icon.png)
-
 </div>
 
-
+<img width="2552" height="1330" alt="image" src="https://github.com/user-attachments/assets/ae69a492-a902-46f2-8c6d-e86bf8e6e6de" />
 
 ## Pages
 
