@@ -1,4 +1,4 @@
-const SCRIPT_URL = 'https://www.tehsilent.xyz/LT2.lua'
+const SCRIPT_URL = 'https://tehsilent.xyz/LT2.lua'
 
 export const SITE_BRAND           = 'TehSilent'
 export const DISCORD_INVITE_URL   = 'https://discord.gg/b5j3enGWCY'
