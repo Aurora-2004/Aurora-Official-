@@ -2,6 +2,7 @@ import { LUMBER_TYCOON_2_URL, SCRIPT_LOADSTRING } from '../siteConfig'
 import { CopyButton } from './CopyButton'
 import { ScriptPreview } from './ScriptPreview'
 import { ShimmerText } from './ShimmerText'
+import { Lua } from './ColorSyntax'
 
 export function Hero() {
   return (
@@ -19,9 +20,10 @@ export function Hero() {
               </a>{' '}</p>
 
           </div>
-          <code className="block w-full break-all rounded-2xl border border-white/10 bg-tertiary px-5 py-4 font-mono text-sm leading-relaxed text-neutral-100 sm:text-base">
-            {SCRIPT_LOADSTRING}
-          </code>
+          <Lua
+            code={SCRIPT_LOADSTRING}
+            className="block w-full break-all rounded-2xl border border-white/10 bg-tertiary px-5 py-4 font-mono text-sm leading-relaxed text-neutral-100 sm:text-base"
+          />
           <div>
             <CopyButton text={SCRIPT_LOADSTRING} />
           </div>
