@@ -1,4 +1,4 @@
-import { SITE_BRAND, SITE_DOMAIN_SUFFIX } from '../siteConfig'
+import { SITE_BRAND } from '../siteConfig'
 import { DiscordInviteLink } from './DiscordInviteLink'
 
 const NAV_LINKS = [
@@ -13,7 +13,6 @@ export function Navbar() {
         <a href="/" className="flex min-w-0 items-center gap-2 truncate text-base font-bold tracking-wide text-white sm:text-lg">
           <span className="truncate">
             {SITE_BRAND}
-            <span className="text-neutral-500">{SITE_DOMAIN_SUFFIX}</span>
           </span>
         </a>
         <div className="flex shrink-0 items-center gap-3 sm:gap-6">
